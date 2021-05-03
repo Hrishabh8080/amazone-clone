@@ -8,7 +8,7 @@ export const getCartTotal = (cart) => {
 }
 
 const reducer = (state, action) => {
-    console.log(action)
+ //   console.log(action)
     switch (action.type) {
         case 'ADD_TO_CART':
             return {
@@ -23,13 +23,20 @@ const reducer = (state, action) => {
                 newCart.splice(index, 1);
             } else {
                 console.warn(
-                    `can't remove the product  ${action.id}`
+                    `can't remove the a product  ${action.id}`
                 )
             }
+
             return {
                 ...state,
                 cart: newCart
             }
+
+            case 'SET_USER':
+                return{
+                    ...state,
+                    user: action.user
+                }
         default:
             return state;
     }
